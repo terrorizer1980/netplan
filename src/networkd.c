@@ -836,9 +836,7 @@ append_wpa_auth_conf(GString* s, const NetplanAuthenticationSettings* auth, cons
             g_string_append(s, "  key_mgmt=IEEE8021X\n");
             break;
 
-        default:
-            g_debug("append_wpa_auth_conf: unhandled key_management");
-            break;
+        default: break; // LCOV_EXCL_LINE
     }
 
     switch (auth->eap_method) {
@@ -857,9 +855,7 @@ append_wpa_auth_conf(GString* s, const NetplanAuthenticationSettings* auth, cons
             g_string_append(s, "  eap=TTLS\n");
             break;
 
-        default:
-            g_debug("append_wpa_auth_conf: unhandled eap_method");
-            break;
+        default: break; // LCOV_EXCL_LINE
     }
 
     if (auth->identity) {
